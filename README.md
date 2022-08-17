@@ -1,24 +1,58 @@
-# api-quick-start
+# cookie-stand-api
 
-Template Project for starting up CRUD API with Django Rest Framework
+Author: Muhammad Qasem Tarboush
 
-## Customization Steps
+Links and Resources
 
-- DO NOT migrate yet
-- add additional dependencies as needed
-  - Re-export requirements.txt as needed
-- change `things` folder to the app name of your choice
-- Search through entire code base for `Thing`,`Things` and `things` to modify code to use your resource
-  - `project/settings.py`
-  - `project/urls.py`
-  - App's files
-    - `views.py`
-    - `urls.py`
-    - `admin.py`
-    - `serializers.py`
-    - `permissions.py`
-- Update ThingModel with fields you need
-  - Make sure to update other modules that would be affected by Model customizations. E.g. serializers, tests, etc.
-- Rename `project/.env.sample` to `.env` and update as needed
-- Run makemigrations and migrate commands
-- Optional: Update `api_tester.py`
+back-end server url : [API Link](https://cookie-api-1.herokuapp.com/)
+
+Setup
+.env requirements (where applicable)
+
+DB PORT: 5432
+
+DATABASE_URL: postgres://username:password@tyke.db.elephantsql.com/db_name
+
+> API:
+> https://cookie-api-1.herokuapp.com/
+>
+>> admin/ : to enter the admin page (superuser is required)
+>
+>> api/v1/cookie_stand/ : to view the list of cookie stands (authentication required)
+>
+>> api/v1/cookie_stand/id : to view stand details (if user owner: Will be able to update and delete it)
+>
+>> api/token/ : to obtain token and refresh token this available for registered users
+
+---
+
+## API visual testing:
+
+> ### No authentication
+
+1. **api/v1/cookie_stand/**
+   ![main no auth](imgs/main_no_auth.png)
+2. **api/v1/cookie_stand/2**
+   ![details](imgs/details_no_auth.png)
+
+> ### With authentication
+
+1. **api/v1/cookie_stand/**
+   ![main auth](imgs/main_auth.png)
+2. **api/v1/cookie_stand/**
+   ![post](imgs/post.png)
+3. **api/v1/cookie_stand/2**
+   ![details](imgs/details_update.png)
+> ### Database
+![db](imgs/db_cookies.png)
+
+
+---
+Tests
+
+How do you run tests?
+>
+> Python manage.py test
+
+Expected results:
+![test](imgs/testing.png)
